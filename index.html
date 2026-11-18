@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="IMPULSA TOOLS — Free business pricing calculator for freelancers and small businesses.">
+<meta name="theme-color" content="#101c32">
+<title>IMPULSA TOOLS — Smart tools. Better business.</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#182238;background:#f4f6fb;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:14px}
+.logo{font-weight:900;letter-spacing:.13em;color:#152b4b}.navright{display:flex;align-items:center;gap:10px}
+select{border:1px solid #d8dfeb;background:#fff;border-radius:10px;padding:9px;color:#26344c}
+.hero{background:#101c32;color:white;border-radius:24px;padding:clamp(28px,6vw,64px);margin:8px 0 22px;overflow:hidden}
+.pill{display:inline-block;border:1px solid #496080;border-radius:99px;padding:6px 11px;font-size:12px;color:#c9d8ee}
+h1{font-size:clamp(38px,7vw,68px);line-height:1.02;letter-spacing:-.045em;max-width:750px;margin:20px 0 14px}
+.hero p{color:#d2dced;max-width:620px;line-height:1.65;font-size:17px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:750;background:#16845c;color:#fff}
+.btn.secondary{background:#263b5b;color:#fff;border:1px solid #526887}
+section{margin:34px 0}.sectionhead{margin-bottom:16px}.sectionhead h2{font-size:27px;margin:0 0 7px;letter-spacing:-.03em}.muted{color:#69758a;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e1e7f0;border-radius:19px;padding:22px;box-shadow:0 8px 30px #152b4b08}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+label{display:block;font-size:13px;font-weight:700;color:#344057;margin-bottom:7px}
+input{width:100%;border:1px solid #d8dfeb;border-radius:10px;padding:12px;outline:none}
+input:focus{border-color:#4775d1;box-shadow:0 0 0 3px #4775d122}
+.rangehead{display:flex;justify-content:space-between;align-items:center;margin:16px 0 8px}.rangehead strong{color:#16845c;font-size:21px}
+input[type=range]{padding:0;accent-color:#16845c}
+.result{background:#eff7f3;border-radius:14px;padding:18px;margin-top:18px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:.1em;color:#557365}.price{font-size:38px;font-weight:900;color:#14764f;margin:6px 0 14px}
+.line{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #d9e9e0;font-size:14px}
+.feature{display:flex;gap:13px;align-items:flex-start}.featureicon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#edf3fb;font-size:20px;flex:none}
+.feature h3{margin:0 0 5px;font-size:16px}.feature p{margin:0;color:#69758a;font-size:14px;line-height:1.5}
+.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.plan{background:#fff;border:1px solid #e1e7f0;border-radius:18px;padding:21px}.plan.featured{border:2px solid #16845c}
+.plan h3{margin:0 0 8px}.amount{font-size:29px;font-weight:900;margin:8px 0}.plan ul{padding-left:18px;color:#69758a;line-height:1.9;font-size:14px}
+.plan .btn{width:100%;margin-top:8px}.small{font-size:12px;color:#7b8596;line-height:1.55}
+footer{padding:28px 0 42px;color:#7b8596;font-size:13px}
+.notice{border:1px solid #ead9a7;background:#fff9e9;border-radius:13px;padding:14px;color:#725b23;font-size:13px;line-height:1.5;margin-top:16px}
+@media(max-width:720px){.grid,.prices{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.hero{border-radius:18px}.wrap{padding:0 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="logo">IMPULSA TOOLS</div><div class="navright">
+<select id="language" aria-label="Language"><option value="es">Español</option><option value="en">English</option></select>
+<select id="currency" aria-label="Currency"><option value="EUR">EUR €</option><option value="USD">USD $</option><option value="GBP">GBP £</option></select>
+</div></nav>
+<header class="hero">
+<span class="pill" data-i18n="eyebrow">HERRAMIENTAS PARA PEQUEÑOS NEGOCIOS</span>
+<h1 data-i18n="headline">Trabaja mejor. Cobra lo que vale tu trabajo.</h1>
+<p data-i18n="subhead">Calcula precios, entiende tus costes y toma decisiones con herramientas sencillas creadas para autónomos y pequeños negocios.</p>
+<div class="actions"><button class="btn" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})" data-i18n="try">Probar calculadora gratis</button><button class="btn secondary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})" data-i18n="plansbtn">Ver planes</button></div>
+</header>
+<section id="calculator">
+<div class="sectionhead"><h2 data-i18n="calcTitle">Calculadora de precios</h2><div class="muted" data-i18n="calcDesc">Estima cuánto cobrar para cubrir tus costes y alcanzar el margen deseado.</div></div>
+<div class="card">
+<div class="fields">
+<div><label for="materials" data-i18n="materials">Materiales y productos</label><input id="materials" type="number" min="0" step=".01" value="25"></div>
+<div><label for="hours" data-i18n="hours">Horas de trabajo</label><input id="hours" type="number" min="0" step=".25" value="2"></div>
+<div><label for="rate" data-i18n="rate">Tarifa por hora</label><input id="rate" type="number" min="0" step=".01" value="20"></div>
+<div><label for="extra" data-i18n="extra">Otros gastos</label><input id="extra" type="number" min="0" step=".01" value="5"></div>
+</div>
+<div class="rangehead"><label for="margin" data-i18n="margin">Margen sobre el precio de venta</label><strong id="marginLabel">30%</strong></div>
+<input id="margin" type="range" min="5" max="90" step="5" value="30">
+<div class="result" aria-live="polite"><div class="eyebrow" data-i18n="recommended">PRECIO DE VENTA RECOMENDADO</div><div class="price" id="price">71,43 €</div>
+<div class="line"><span data-i18n="total">Coste total</span><b id="total">70,00 €</b></div><div class="line"><span data-i18n="profit">Beneficio estimado</span><b id="profit">1,43 €</b></div></div>
+<button class="btn" id="copy" style="width:100%;margin-top:14px" data-i18n="copy">Copiar resultado</button>
+<p class="small" data-i18n="disclaimer">Estimación antes de impuestos. No incluye comisiones, retenciones ni obligaciones fiscales. El margen se calcula sobre el precio de venta, no como recargo sobre el coste.</p>
+</div></section>
+<section><div class="sectionhead"><h2 data-i18n="whyTitle">Pequeñas herramientas. Decisiones más claras.</h2><div class="muted" data-i18n="whyDesc">Un punto de partida práctico para gestionar tu actividad.</div></div>
+<div class="grid">
+<div class="card feature"><div class="featureicon">🧮</div><div><h3 data-i18n="f1">Calcula tus precios</h3><p data-i18n="f1d">Ten en cuenta materiales, tiempo y gastos adicionales.</p></div></div>
+<div class="card feature"><div class="featureicon">🌍</div><div><h3 data-i18n="f2">Pensado para todo el mundo</h3><p data-i18n="f2d">Interfaz en español e inglés y selector de moneda.</p></div></div>
+<div class="card feature"><div class="featureicon">📱</div><div><h3 data-i18n="f3">Funciona en móvil y ordenador</h3><p data-i18n="f3d">Diseño adaptable, sin instalar aplicaciones.</p></div></div>
+<div class="card feature"><div class="featureicon">🔒</div><div><h3 data-i18n="f4">Cálculo en tu navegador</h3><p data-i18n="f4d">Los valores introducidos no se envían a un servidor.</p></div></div>
+</div></section>
+<section id="plans"><div class="sectionhead"><h2 data-i18n="plansTitle">Planes propuestos</h2><div class="muted" data-i18n="plansDesc">Precios de prueba para validar el interés antes de activar cobros.</div></div>
+<div class="prices">
+<div class="plan"><h3 data-i18n="free">Gratis</h3><div class="amount">€0</div><ul><li data-i18n="p1a">Calculadora básica</li><li data-i18n="p1b">Uso sin registro</li></ul><button class="btn" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})" data-i18n="startFree">Empezar gratis</button></div>
+<div class="plan featured"><h3 data-i18n="pro">Profesional</h3><div class="amount">€4.99<span style="font-size:13px;font-weight:500" data-i18n="month">/mes</span></div><ul><li data-i18n="p2a">Historial de cálculos (futuro)</li><li data-i18n="p2b">Plantillas de presupuestos (futuro)</li></ul><button class="btn" disabled style="opacity:.55;cursor:not-allowed" data-i18n="coming">Próximamente</button></div>
+<div class="plan"><h3 data-i18n="premium">Premium</h3><div class="amount">€9.99<span style="font-size:13px;font-weight:500" data-i18n="month">/mes</span></div><ul><li data-i18n="p3a">Herramientas avanzadas (futuro)</li><li data-i18n="p3b">Informes y exportación (futuro)</li></ul><button class="btn" disabled style="opacity:.55;cursor:not-allowed" data-i18n="coming">Próximamente</button></div>
+</div>
+<div class="notice" data-i18n="paymentNote">Los planes de pago son una propuesta, no una suscripción activa. Todavía no se procesan pagos ni se crean cuentas. Primero valida que haya clientes interesados.</div>
+</section>
+<footer>© <span id="year"></span> IMPULSA TOOLS · <span data-i18n="footer">Herramientas prácticas para pequeños negocios.</span><br><span data-i18n="beta">Versión inicial de prueba. No constituye asesoramiento financiero, fiscal o legal.</span></footer>
+</div>
+<script>
+const translations={
+es:{eyebrow:"HERRAMIENTAS PARA PEQUEÑOS NEGOCIOS",headline:"Trabaja mejor. Cobra lo que vale tu trabajo.",subhead:"Calcula precios, entiende tus costes y toma decisiones con herramientas sencillas creadas para autónomos y pequeños negocios.",try:"Probar calculadora gratis",plansbtn:"Ver planes",calcTitle:"Calculadora de precios",calcDesc:"Estima cuánto cobrar para cubrir tus costes y alcanzar el margen deseado.",materials:"Materiales y productos",hours:"Horas de trabajo",rate:"Tarifa por hora",extra:"Otros gastos",margin:"Margen sobre el precio de venta",recommended:"PRECIO DE VENTA RECOMENDADO",total:"Coste total",profit:"Beneficio estimado",copy:"Copiar resultado",copied:"¡Resultado copiado!",disclaimer:"Estimación antes de impuestos. No incluye comisiones, retenciones ni obligaciones fiscales. El margen se calcula sobre el precio de venta, no como recargo sobre el coste.",whyTitle:"Pequeñas herramientas. Decisiones más claras.",whyDesc:"Un punto de partida práctico para gestionar tu actividad.",f1:"Calcula tus precios",f1d:"Ten en cuenta materiales, tiempo y gastos adicionales.",f2:"Pensado para todo el mundo",f2d:"Interfaz en español e inglés y selector de moneda.",f3:"Funciona en móvil y ordenador",f3d:"Diseño adaptable, sin instalar aplicaciones.",f4:"Cálculo en tu navegador",f4d:"Los valores introducidos no se envían a un servidor.",plansTitle:"Planes propuestos",plansDesc:"Precios de prueba para validar el interés antes de activar cobros.",free:"Gratis",pro:"Profesional",premium:"Premium",month:"/mes",p1a:"Calculadora básica",p1b:"Uso sin registro",p2a:"Historial de cálculos (futuro)",p2b:"Plantillas de presupuestos (futuro)",p3a:"Herramientas avanzadas (futuro)",p3b:"Informes y exportación (futuro)",startFree:"Empezar gratis",coming:"Próximamente",paymentNote:"Los planes de pago son una propuesta, no una suscripción activa. Todavía no se procesan pagos ni se crean cuentas. Primero valida que haya clientes interesados.",footer:"Herramientas prácticas para pequeños negocios.",beta:"Versión inicial de prueba. No constituye asesoramiento financiero, fiscal o legal."},
+en:{eyebrow:"TOOLS FOR SMALL BUSINESSES",headline:"Work smarter. Charge what your work is worth.",subhead:"Price your work, understand your costs and make clearer decisions with simple tools for freelancers and small businesses.",try:"Try the free calculator",plansbtn:"View plans",calcTitle:"Pricing calculator",calcDesc:"Estimate what to charge to cover your costs and reach your target margin.",materials:"Materials and products",hours:"Work hours",rate:"Hourly rate",extra:"Other expenses",margin:"Margin on selling price",recommended:"RECOMMENDED SELLING PRICE",total:"Total cost",profit:"Estimated profit",copy:"Copy result",copied:"Result copied!",disclaimer:"Estimate before taxes. Excludes fees, withholding and tax obligations. Margin is calculated on the selling price, not as a markup on cost.",whyTitle:"Simple tools. Clearer decisions.",whyDesc:"A practical starting point for managing your business.",f1:"Price your work",f1d:"Account for materials, time and additional expenses.",f2:"Built for a global audience",f2d:"English and Spanish interface with currency selector.",f3:"Works on mobile and desktop",f3d:"Responsive design, no app installation required.",f4:"Calculated in your browser",f4d:"Your entries are not sent to a server.",plansTitle:"Proposed plans",plansDesc:"Test prices to validate demand before enabling payments.",free:"Free",pro:"Professional",premium:"Premium",month:"/month",p1a:"Basic calculator",p1b:"No account required",p2a:"Calculation history (planned)",p2b:"Quote templates (planned)",p3a:"Advanced tools (planned)",p3b:"Reports and export (planned)",startFree:"Start for free",coming:"Coming soon",paymentNote:"Paid plans are proposals, not active subscriptions. Payments and accounts are not enabled yet. Validate customer interest first.",footer:"Practical tools for small businesses.",beta:"Early test version. Not financial, tax or legal advice."}
+};
+const rates={EUR:1,USD:1.08,GBP:.85},symbols={EUR:"€",USD:"$",GBP:"£"};
+let lang="es",currency="EUR",summary="";
+const el=id=>document.getElementById(id);
+function fmt(n){return new Intl.NumberFormat(lang==="es"?"es-ES":"en-US",{style:"currency",currency}).format(n*rates[currency]);}
+function update(){
+ const val=id=>Math.max(0,Number(el(id).value)||0);
+ const cost=val("materials")+val("hours")*val("rate")+val("extra"),m=val("margin"),selling=cost/(1-m/100),profit=selling-cost;
+ el("marginLabel").textContent=m+"%";el("price").textContent=fmt(selling);el("total").textContent=fmt(cost);el("profit").textContent=fmt(profit);
+ summary=`IMPULSA TOOLS\n${lang==="es"?"Coste total":"Total cost"}: ${fmt(cost)}\n${lang==="es"?"Margen":"Margin"}: ${m}%\n${lang==="es"?"Precio recomendado":"Recommended price"}: ${fmt(selling)}\n${lang==="es"?"Beneficio estimado":"Estimated profit"}: ${fmt(profit)}`;
+}
+function setLanguage(next){lang=next;document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(node=>{const key=node.dataset.i18n;if(translations[lang][key])node.textContent=translations[lang][key]});update()}
+["materials","hours","rate","extra","margin"].forEach(id=>el(id).addEventListener("input",update));
+el("language").addEventListener("change",e=>setLanguage(e.target.value));
+el("currency").addEventListener("change",e=>{currency=e.target.value;update()});
+el("copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(summary);el("copy").textContent=translations[lang].copied;setTimeout(()=>el("copy").textContent=translations[lang].copy,1800)}catch(e){el("copy").textContent=lang==="es"?"No se pudo copiar":"Could not copy"}});
+el("year").textContent=new Date().getFullYear();update();
+</script>
+</body></html>
